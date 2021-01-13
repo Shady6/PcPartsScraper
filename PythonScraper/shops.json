@@ -1,0 +1,57 @@
+{
+  "products": [
+    {
+      "name": "rtx 3080",
+      "category": "Graphics Cards",
+      "removeIfNotContains": "words that should be in the product name"
+    },
+    {
+      "name": "intel i7",
+      "category": "Processor",
+      "removeIfNotContains": "words that should be in the product name"
+    },
+    {
+      "name": "ram",
+      "category": "RAM",
+      "removeIfNotContains": "words that should be in the product name"
+    }
+  ],
+  "shops": [
+    {
+      "shopName": "xKom",
+      "baseUrl": "https://www.x-kom.pl",
+      "query": "/szukaj?q=",
+      "cssSelectors": {
+        "container": "#listing-container > div",
+        "name": "a > h3",
+        "price": ".sc-6n68ef-0",
+        "linkToProduct": "a.sc-1h16fat-0",
+        "producentCode": "div.sc-1bker4h-3.fCkhjh span.sc-1bker4h-7.bUpJXr"
+      }
+    },
+    {
+      "shopName": "Komputronik",
+      "baseUrl": "https://www.komputronik.pl",
+      "query": "/search/category/1?query=",
+      "cssSelectors": {
+        "container": ".product-entry2-wrap > li",
+        "name": ".pe2-head > a",
+        "price": ".price > .proper",
+        "linkToProduct": null,              
+        "producentCode": ".pe2-codes"        
+      }     
+    },
+    {
+      "shopName": "Morele",
+      "baseUrl": "https://www.morele.net",
+      "query": "/wyszukiwarka/0/0/,,,,,,,,,,,,/1/?q=",
+      "cssSelectors": {
+        "container": ".cat-list-products > div",        
+        "name": ".cat-product-name > .productLink",
+        "price": ".price-new",
+        "linkToProduct": ".cat-product-name .productLink",              
+        "producentCode": ".specification-table .table-info-item:nth-child(2) .info-item"        
+      }
+    }
+  ]
+}
