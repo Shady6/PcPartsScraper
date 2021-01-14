@@ -13,7 +13,7 @@
     {
       "name": "ram",
       "category": "RAM",
-      "mustInclude": ["ddr", "gb", "mhz"]
+      "mustInclude": ["gb", "mhz"]
     }
   ],
   "shops": [

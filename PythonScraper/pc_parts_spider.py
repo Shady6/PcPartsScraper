@@ -20,11 +20,11 @@ class PcPartsSpider(Spider):
 
         for child in parentContainer:
             # uncomment for debugging
-            if i < maxiterations: 
-                pcPart = self.GetText({"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}, child)                               
-                pcPart["producentCode"] = self.GetProducentCode(child)
-                pcParts.append(pcPart)
-                i += 1
+            # if i < maxiterations: 
+            pcPart = self.GetText({"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}, child)                               
+            pcPart["producentCode"] = self.GetProducentCode(child)
+            pcParts.append(pcPart)
+            i += 1
         return pcParts    
 
 
