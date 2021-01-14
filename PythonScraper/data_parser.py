@@ -1,19 +1,23 @@
 import re
+import copy
 from html.parser import HTMLParser
 
-def parsePcPartsData(pcParts):
-    result = []
-    for pcPart in pcParts:
-        pcPartParsed = {}
-        for key in pcPart:
-            if key == "price":
-                pcPartParsed[key] = parsePrice(pcPart[key])
-            elif key == "producentCode":
-                pcPartParsed[key] = parseProducentCode(pcPart[key])
-            else:
-                pcPartParsed[key] = trimRemoveSpecialCharacters(pcPart[key])
-        result.append(pcPartParsed)
-    return result
+def parsePcPartsData(pcParts):    
+
+    pcPartsCopy = copy.deepcopy(pcParts)
+
+    for entry in pcPartsCopy:
+        for product in entry["products"]:
+            for item in product["items"]:
+                for key in item:                        
+                    if key == "price":
+                        item[key] = parsePrice(item[key])
+                    elif key == "producentCode":
+                        item[key] = parseProducentCode(item[key])
+                    else:
+                        item[key] = trimRemoveSpecialCharacters(item[key])    
+
+    return pcPartsCopy
 
 
 def parseProducentCode(text):
@@ -35,8 +39,7 @@ def SearchAndRemove(textToSearch, text, removeLeft):
     return text    
 
 def trimRemoveSpecialCharacters(text):
-    text = removeHtmlSpecialCharacters(text)
-    # text = removeSpecialCharacters(text)
+    text = removeHtmlSpecialCharacters(text)    
     text = trim(text)
     return text
 
@@ -64,6 +67,3 @@ def removeHtmlSpecialCharacters(text):
 def trim(text):
     return text.strip()
 
-
-# def removeSpecialCharacters(text):
-#     return re.sub('[^A-Za-z0-9 ]+', '', text)    
