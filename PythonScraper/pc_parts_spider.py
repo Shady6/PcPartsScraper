@@ -15,7 +15,7 @@ class PcPartsSpider(Spider):
         pcParts = []
 
         # For debug purpose decrease requests        
-        maxiterations = 2
+        maxiterations = 1
         i = 0
 
         for child in parentContainer:
