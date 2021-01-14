@@ -2,8 +2,7 @@ import requests
 from bs4 import BeautifulSoup as bs
 import os.path
 import logging
-from file_saver import *
-from url import *
+from Utils.url import *
 
 class Spider:
     def __init__(self, baseUrl, urlExtend, headers={

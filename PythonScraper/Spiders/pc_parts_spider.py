@@ -1,4 +1,4 @@
-from spider import Spider
+from Spiders.spider import Spider
 
 class PcPartsSpider(Spider):
     def __init__(self, baseUrl, urlExtend, cssSelectors, headers={

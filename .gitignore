@@ -2,6 +2,7 @@ _json/
 _html/
 .vscode/
 shops_debug.json
+future.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

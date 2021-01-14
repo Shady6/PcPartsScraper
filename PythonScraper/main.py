@@ -1,9 +1,9 @@
-from pc_parts_spider import PcPartsSpider
+from Spiders.pc_parts_spider import PcPartsSpider
 import json
-from file_saver import *
-from data_parser import parsePcPartsData
-from data_remover import removeRecordsNotContainingKeywords
-from producent_codes_list_creator import createProducentCodesList
+from Utils.file_saver import *
+from Parsers.data_parser import parsePcPartsData
+from Parsers.data_remover import removeRecordsNotContainingKeywords
+from Parsers.producent_codes_list_creator import createProducentCodesList
 
 
 def dataStepsToFile(preParsePcParts):
