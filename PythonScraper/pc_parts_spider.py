@@ -25,7 +25,7 @@ class PcPartsSpider(Spider):
                 pcPart["producentCode"] = self.GetProducentCode(child)
                 pcParts.append(pcPart)
                 i += 1
-        return pcParts
+        return pcParts    
 
 
     def GetProducentCode(self, htmlElement):

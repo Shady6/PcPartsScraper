@@ -1,19 +1,19 @@
-{
+{      
   "products": [
     {
       "name": "rtx 3080",
       "category": "Graphics Cards",
-      "removeIfNotContains": "words that should be in the product name"
+      "mustInclude": ["ge force"]
     },
     {
       "name": "intel i7",
       "category": "Processor",
-      "removeIfNotContains": "words that should be in the product name"
+      "mustInclude": ["intel core", "i7"]
     },
     {
       "name": "ram",
       "category": "RAM",
-      "removeIfNotContains": "words that should be in the product name"
+      "mustInclude": ["ddr", "gb", "mhz"]
     }
   ],
   "shops": [
