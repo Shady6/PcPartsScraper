@@ -1,6 +1,0 @@
-- TODO
-
-- add parsing for new pre parse model
-    - clean up data parser
-
-- add data removing with keyword
