@@ -3,7 +3,7 @@
     {
       "name": "rtx 3080",
       "category": "Graphics Cards",
-      "mustInclude": ["ge force"]
+      "mustInclude": ["geforce"]
     },
     {
       "name": "intel i7",
