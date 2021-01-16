@@ -5,6 +5,7 @@ from Parsers.data_parser import parsePcPartsData
 from Parsers.data_remover import removeRecordsNotContainingKeywords
 from Parsers.producent_codes_list_creator import createProducentCodesList
 from Parsers.to_database_parser import *
+from DatabaseAccess.save_data import saveAll
 
 
 def dataStepsToFile(preParsePcParts):
@@ -16,13 +17,17 @@ def dataStepsToFile(preParsePcParts):
     saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
 
     pcPartsDbFormat = parsePcPartsToDbFormat(postParsePcParts)
-    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))    
+    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))  
+    saveToCsv("pcPartsDbFormat", pcPartsDbFormat)      
 
     producentCodesList = createProducentCodesList(postParsePcParts)
     saveJsonToFile("producentCodes", json.dumps(producentCodesList))
 
     producentCodesDbFormat = parseProducentCodesToDbFormat(producentCodesList)
     saveJsonToFile("producentCodesDbFormat", json.dumps(producentCodesDbFormat))
+
+    saveAll(pcPartsDbFormat, producentCodesDbFormat)
+
 
 
 debug = True

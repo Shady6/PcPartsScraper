@@ -1,7 +1,11 @@
+from datetime import datetime
+import time
+
 def parsePcPartsToDbFormat(pcParts):        
 
     databaseFormatResult = []
 
+    now = datetime.now()
     for entry in pcParts:
         dbEntry = {}
         shopName = entry["shopName"]
@@ -19,7 +23,9 @@ def parsePcPartsToDbFormat(pcParts):
                 "category": category,
                 "detailedName": detailedName,
                 "price": price,
-                "producentCode": producentCode,                
+                "producentCode": producentCode,  
+                "listingDate": time.strftime('%Y-%m-%d %H:%M:%S'),
+                "id": ""
             })
 
     return databaseFormatResult

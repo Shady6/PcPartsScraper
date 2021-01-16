@@ -1,5 +1,6 @@
-def connect():
-    import pyodbc 
+import pyodbc 
+
+def connect():    
     conn = pyodbc.connect('Driver={SQL Server};'
                         'Server=DESKTOP-CVC40GK;'
                         'Database=skateSpot2TestDb;'
