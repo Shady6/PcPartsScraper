@@ -4,6 +4,7 @@ from Utils.file_saver import *
 from Parsers.data_parser import parsePcPartsData
 from Parsers.data_remover import removeRecordsNotContainingKeywords
 from Parsers.producent_codes_list_creator import createProducentCodesList
+from Parsers.to_database_parser import *
 
 
 def dataStepsToFile(preParsePcParts):
@@ -14,8 +15,14 @@ def dataStepsToFile(preParsePcParts):
     pcPartsTrimmed = removeRecordsNotContainingKeywords(postParsePcParts)
     saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
 
+    pcPartsDbFormat = parsePcPartsToDbFormat(postParsePcParts)
+    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))    
+
     producentCodesList = createProducentCodesList(postParsePcParts)
     saveJsonToFile("producentCodes", json.dumps(producentCodesList))
+
+    producentCodesDbFormat = parseProducentCodesToDbFormat(producentCodesList)
+    saveJsonToFile("producentCodesDbFormat", json.dumps(producentCodesDbFormat))
 
 
 debug = True
@@ -32,7 +39,7 @@ if not debug:
     for shop in shopsData["shops"]:
 
         scrapedPcParts = {
-            "shopname": shop["shopName"],
+            "shopName": shop["shopName"],
             "products": []
         }
 

@@ -4,16 +4,23 @@ def parsePcPartsToDbFormat(pcParts):
 
     for entry in pcParts:
         dbEntry = {}
-        dbEntry["shopName"] = entry["shopName"]
+        shopName = entry["shopName"]
         for product in entry["products"]:
-            dbEntry["productName"] = product["searchQuery"]
+            productName = product["searchQuery"]
             category = product["category"]
             for item in product["items"]:
-                dbEntry["detailedName"] = item["name"]
-                dbEntry["price"] = item["price"]
-                dbEntry["producentCode"] = item["producentCode"]
+                detailedName = item["name"]
+                price = item["price"]
+                producentCode = item["producentCode"]
 
-                databaseFormatResult.append(dbEntry)
+                databaseFormatResult.append({
+                "shopName": shopName,
+                "productName": productName,
+                "category": category,
+                "detailedName": detailedName,
+                "price": price,
+                "producentCode": producentCode,                
+            })
 
     return databaseFormatResult
 
@@ -24,11 +31,15 @@ def parseProducentCodesToDbFormat(producentCodes):
 
     for entry in producentCodes:
         dbEntry = {}
-        dbEntry["category"] = entry["category"]
+        category = entry["category"]
         for item in entry["items"]:
-            dbEntry["detailedName"] = item["name"]
-            dbEntry["producentCode"] = producnetCode["producentCode"]            
+            detailedName = item["name"]
+            producentCode = item["producentCode"]            
                 
-            databaseFormatResult.append(dbEntry)
+            databaseFormatResult.append({
+                "category": category,
+                "detailedName": detailedName,
+                "producentCode": producentCode,                
+            })
 
     return databaseFormatResult
