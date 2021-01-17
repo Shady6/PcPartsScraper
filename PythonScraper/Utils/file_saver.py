@@ -16,7 +16,7 @@ def saveJsonToFile(fileName, content):
 
 def saveToCsv(fileName, content):
     with open(f"./_csv/{fileName}.csv", mode='w', encoding="utf-8", newline="") as f:
-        writer = csv.writer(f, delimiter=',', quotechar='"',
+        writer = csv.writer(f, delimiter=",", quotechar="\"",
                             quoting=csv.QUOTE_MINIMAL)
         for entry in content:
             writer.writerow(entry.values())

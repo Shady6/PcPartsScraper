@@ -1,6 +1,6 @@
 import copy
 
-def removeRecordsNotContainingKeywords(pcParts):
+def filterRecordsNotContainingKeyword(pcParts):
     pcPartsCopy = copy.deepcopy(pcParts)
 
     for entry in pcPartsCopy:

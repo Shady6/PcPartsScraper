@@ -2,42 +2,51 @@ from Spiders.pc_parts_spider import PcPartsSpider
 import json
 from Utils.file_saver import *
 from Parsers.data_parser import parsePcPartsData
-from Parsers.data_remover import removeRecordsNotContainingKeywords
+from Parsers.filter_with_keyword import filterRecordsNotContainingKeyword
 from Parsers.producent_codes_list_creator import createProducentCodesList
 from Parsers.to_database_parser import *
+from Parsers.filter_with_invalid_producent_code import filterRecordsWithInvalidProducentCode
 from DatabaseAccess.save_data import saveAll
-
+    
 
 def dataStepsToFile(preParsePcParts):
 
     postParsePcParts = parsePcPartsData(preParsePcParts)
     saveJsonToFile("postParsePcParts", json.dumps(postParsePcParts))
 
-    pcPartsTrimmed = removeRecordsNotContainingKeywords(postParsePcParts)
+    pcPartsTrimmed = filterRecordsNotContainingKeyword(postParsePcParts)
     saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
 
+    pcPartsFilteredByProducentCode = filterRecordsWithInvalidProducentCode(postParsePcParts)
+    saveJsonToFile("pcPartsFilteredByProducentCode", json.dumps(pcPartsFilteredByProducentCode))
+
     pcPartsDbFormat = parsePcPartsToDbFormat(postParsePcParts)
-    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))  
-    saveToCsv("pcPartsDbFormat", pcPartsDbFormat)      
+    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))
+    saveToCsv("pcPartsDbFormat", pcPartsDbFormat)
 
     producentCodesList = createProducentCodesList(postParsePcParts)
     saveJsonToFile("producentCodes", json.dumps(producentCodesList))
 
     producentCodesDbFormat = parseProducentCodesToDbFormat(producentCodesList)
-    saveJsonToFile("producentCodesDbFormat", json.dumps(producentCodesDbFormat))
+    saveJsonToFile("producentCodesDbFormat",
+                   json.dumps(producentCodesDbFormat))
 
     saveAll(pcPartsDbFormat, producentCodesDbFormat)
 
+
+def loadShopsData():
+    shopsData = ""
+
+    with open("shops.json") as f:
+        shopsData = json.load(f)
+    return shopsData
 
 
 debug = True
 
 if not debug:
 
-    shopsData = ""
-
-    with open("shops.json") as f:
-        shopsData = json.load(f)
+    shopsData = loadShopsData()
 
     preParsePcParts = []
 
