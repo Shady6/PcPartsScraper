@@ -1,5 +1,6 @@
 _json/
 _html/
+_csv/
 .vscode/
 shops_debug.json
 PythonScraper/TODO.txt

@@ -20,7 +20,7 @@ def dataStepsToFile(preParsePcParts):
     pcPartsFilteredByProducentCode = filterRecordsWithInvalidProducentCode(postParsePcParts)
     saveJsonToFile("pcPartsFilteredByProducentCode", json.dumps(pcPartsFilteredByProducentCode))
 
-    pcPartsDbFormat = parsePcPartsToDbFormat(postParsePcParts)
+    pcPartsDbFormat = parsePcPartsToDbFormat(pcPartsFilteredByProducentCode)
     saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))
     saveToCsv("pcPartsDbFormat", pcPartsDbFormat)
 
