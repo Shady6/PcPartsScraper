@@ -6,7 +6,7 @@ def saveToFile(fileName, format, content):
         f.write(content)
 
 
-def saveWebPageToFile(fileName, content):
+def saveWebPageToFile(fileName, content):    
     saveToFile('./_html/' + fileName, 'html', content)
 
 

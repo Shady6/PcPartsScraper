@@ -1,24 +1,28 @@
 {      
   "products": [
     {
-      "name": "rtx 3080",
+      "name": "rtx 3090",
       "category": "Graphics Cards",
       "mustInclude": ["geforce"]
-    },
-    {
-      "name": "intel i7",
-      "category": "Processor",
-      "mustInclude": ["intel core", "i7"]
-    },
-    {
-      "name": "ram",
-      "category": "RAM",
-      "mustInclude": ["gb", "mhz"]
     }
   ],
   "shops": [
     {
+      "shopName": "AlternateDE",
+      "currency": "EUR",
+      "baseUrl": "https://www.alternate.de/",
+      "query": "html/search.html?query=",
+      "cssSelectors": {
+        "container": "#pageContent > div.searchResultBox",        
+        "name": ".description .name span:nth-child(2)",
+        "price": ".waresSum .price",
+        "linkToProduct": ".productLink",              
+        "producentCode": "table tr:nth-child(3) td:nth-child(2)"        
+      }
+    },
+    {
       "shopName": "xKom",
+      "currency": "PLN",
       "baseUrl": "https://www.x-kom.pl",
       "query": "/szukaj?q=",
       "cssSelectors": {
@@ -31,6 +35,7 @@
     },
     {
       "shopName": "Komputronik",
+      "currency": "PLN",
       "baseUrl": "https://www.komputronik.pl",
       "query": "/search/category/1?query=",
       "cssSelectors": {
@@ -43,6 +48,7 @@
     },
     {
       "shopName": "Morele",
+      "currency": "PLN",
       "baseUrl": "https://www.morele.net",
       "query": "/wyszukiwarka/0/0/,,,,,,,,,,,,/1/?q=",
       "cssSelectors": {

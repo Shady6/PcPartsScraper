@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup as bs
 import os.path
 import logging
 from Utils.url import *
+from Utils.file_saver import saveWebPageToFile
+import urllib.parse
 
 class Spider:
     def __init__(self, baseUrl, urlExtend, headers={
@@ -23,8 +25,11 @@ class Spider:
             # for debug purpose
             print(f"Sending request to {url}")
             response = requests.get(url, headers=self.headers)
-            content = response.content
+            content = response.content            
             response.close()
+
+            #for debug purposes                    
+            saveWebPageToFile(urllib.parse.urlparse(url).netloc.replace(".", ""), str(content))
             return content    
         except:
             print(f"Failed connecting to {url}")
@@ -54,6 +59,7 @@ class Spider:
             except:
                 selectedText[key] = ""
                 print(f"Couldn't use css selector for {key}")                
+                print(htmlElement.select_one(cssSelectors[key]))
 
         return selectedText
 

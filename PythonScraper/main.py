@@ -6,7 +6,7 @@ from Parsers.filter_with_keyword import filterRecordsNotContainingKeyword
 from Parsers.producent_codes_list_creator import createProducentCodesList
 from Parsers.to_database_parser import *
 from Parsers.filter_with_invalid_producent_code import filterRecordsWithInvalidProducentCode
-from DatabaseAccess.save_data import saveAll
+#from DatabaseAccess.save_data import saveAll
     
 
 def dataStepsToFile(preParsePcParts):
@@ -37,48 +37,49 @@ def dataStepsToFile(preParsePcParts):
 def loadShopsData():
     shopsData = ""
 
-    with open("shops.json") as f:
+    with open("./ShopsInputData/shops.json") as f:
         shopsData = json.load(f)
     return shopsData
 
 
-debug = True
+# debug = True
 
-if not debug:
+# if not debug:
 
-    shopsData = loadShopsData()
+shopsData = loadShopsData()
 
-    preParsePcParts = []
+preParsePcParts = []
 
-    for shop in shopsData["shops"]:
+for shop in shopsData["shops"]:
 
-        scrapedPcParts = {
-            "shopName": shop["shopName"],
-            "products": []
-        }
+    scrapedPcParts = {
+        "shopName": shop["shopName"],
+        "currency": shop["currency"],
+        "products": []
+    }
 
-        for product in shopsData["products"]:
-            spider = PcPartsSpider(
-                shop["baseUrl"],
-                shop["query"] + product["name"],
-                shop["cssSelectors"]
-            )
-            scrapedPcParts["products"].append({
-                "searchQuery": product["name"],
-                "mustInclude": product["mustInclude"],
-                "category": product["category"],
-                "items": spider.CreatePcPartsList()
-            })
+    for product in shopsData["products"]:
+        spider = PcPartsSpider(
+            shop["baseUrl"],
+            shop["query"] + product["name"],
+            shop["cssSelectors"]
+        )        
+        scrapedPcParts["products"].append({
+            "searchQuery": product["name"],
+            "mustInclude": product["mustInclude"],
+            "category": product["category"],
+            "items": spider.CreatePcPartsList()
+        })
 
-        preParsePcParts.append(scrapedPcParts)
+    preParsePcParts.append(scrapedPcParts)
 
-    saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))
+saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))
 
-    dataStepsToFile(preParsePcParts)
+dataStepsToFile(preParsePcParts)
 
-else:
-    preParsePcParts = None
-    with open("./_json/preParsePcParts.json") as f:
-        preParsePcParts = json.load(f)
+# else:
+#     preParsePcParts = None
+#     with open("./_json/preParsePcParts.json") as f:
+#         preParsePcParts = json.load(f)
 
-    dataStepsToFile(preParsePcParts)
+#     dataStepsToFile(preParsePcParts)
