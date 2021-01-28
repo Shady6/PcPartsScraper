@@ -1,23 +1,23 @@
 {      
   "products": [
     {
-      "name": "rtx 3090",
+      "name": "rtx 1660",
       "category": "Graphics Cards",
       "mustInclude": ["geforce"]
     }
   ],
   "shops": [
     {
-      "shopName": "AlternateDE",
-      "currency": "EUR",
-      "baseUrl": "https://www.alternate.de/",
-      "query": "html/search.html?query=",
+      "shopName": "OverclovkersUK",
+      "currency": "GBP",
+      "baseUrl": "https://www.overclockers.co.uk/",
+      "query": "search?sSearch=",
       "cssSelectors": {
-        "container": "#pageContent > div.searchResultBox",        
-        "name": ".description .name span:nth-child(2)",
-        "price": ".waresSum .price",
-        "linkToProduct": ".productLink",              
-        "producentCode": "table tr:nth-child(3) td:nth-child(2)"        
+        "container": "#listing-4col",        
+        "name": ".ProductTitle",
+        "price": ".price",
+        "linkToProduct": ".hover_bg",              
+        "producentCode": "#detail_bottom .top_detail:first-child"        
       }
     },
     {

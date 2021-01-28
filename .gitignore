@@ -3,6 +3,7 @@ _html/
 _csv/
 .vscode/
 shops_debug.json
+secret.txt
 PythonScraper/TODO.txt
 
 # Byte-compiled / optimized / DLL files
