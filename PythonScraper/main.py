@@ -6,7 +6,7 @@ from Parsers.filter_with_keyword import filterRecordsNotContainingKeyword
 from Parsers.producent_codes_list_creator import createProducentCodesList
 from Parsers.to_database_parser import *
 from Parsers.filter_with_invalid_producent_code import filterRecordsWithInvalidProducentCode
-#from DatabaseAccess.save_data import saveAll
+from DatabaseAccess.save_data import saveAll
     
 
 def dataStepsToFile(preParsePcParts):
@@ -31,7 +31,7 @@ def dataStepsToFile(preParsePcParts):
     saveJsonToFile("producentCodesDbFormat",
                    json.dumps(producentCodesDbFormat))
 
-    saveAll(pcPartsDbFormat, producentCodesDbFormat)
+    saveAll()
 
 
 def loadShopsData():
