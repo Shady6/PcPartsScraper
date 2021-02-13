@@ -42,7 +42,7 @@ def loadShopsData():
     return shopsData
 
 
-debug = True
+debug = False
 
 if not debug:
 

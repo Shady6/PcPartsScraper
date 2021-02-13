@@ -8,7 +8,7 @@
   ],
   "shops": [
     {
-      "shopName": "OverclovkersUK",
+      "shopName": "OverclockersUK",
       "currency": "GBP",
       "baseUrl": "https://www.overclockers.co.uk/",
       "query": "search?sSearch=",

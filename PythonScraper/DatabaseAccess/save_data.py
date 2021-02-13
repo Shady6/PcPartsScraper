@@ -1,5 +1,4 @@
 from DatabaseAccess.connection import connect
-from datetime import datetime
 from CurrencyAPI.exchange_rates import loadExchangeRates
 
 def saveAll():
@@ -30,4 +29,4 @@ def saveExchangeRates(cursor):
             insert into PCPartsScrap.dbo.ExchangeRates (from_to, [value], [date])
             values ('{key}', {exchangeRate[key]["val"]}, '{exchangeRate[key]["timestamp"]}');
         END"""
-        cursor.execute(query)        
+        cursor.execute(query)

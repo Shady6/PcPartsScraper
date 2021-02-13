@@ -25,7 +25,7 @@ def parsePcPartsData(pcParts):
 
 def parseProducentCode(text):
     charactersToRemove = r"[\[\]:]"
-    wordsToRemove = ["kod producenta", "stock code"]
+    wordsToRemove = ["kod producenta", "stock code", "kod systemowy"]
 
     text = removeUnwantedWords(wordsToRemove, text)
     text = SearchAndRemove("\n", text, False)
