@@ -1,0 +1,48 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.40203.910",
+  "GettingStartedDocument": {
+    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
+  },
+  "ExtendedData": {
+    "inputs": [
+      "http://localhost:8011/?wsdl"
+    ],
+    "collectionTypes": [
+      "System.Array",
+      "System.Collections.Generic.Dictionary`2"
+    ],
+    "namespaceMappings": [
+      "*, ServiceReference1"
+    ],
+    "references": [
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\Accessibility.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\PcPartsScrap.Wcf.Contracts.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Activities.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Activities.DurableInstancing.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Configuration.Install.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Data.OracleClient.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Deployment.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Design.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.DirectoryServices.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Drawing.Design.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.EnterpriseServices.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.IdentityModel.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.IdentityModel.Selectors.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Messaging.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Runtime.DurableInstancing.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Runtime.Remoting.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Runtime.Serialization.Formatters.Soap.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.ServiceModel.Activation.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.ServiceModel.Activities.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.ServiceModel.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Web.ApplicationServices.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Web.RegularExpressions.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Web.Services.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Windows.Forms.dll",
+      "C:\\Mikolaj\\DEV\\Python\\PcPartsScrap\\WCF_and_API\\PcPartsScrap\\PcPartsScrap.Api.Managers\\bin\\Debug\\netcoreapp3.1\\System.Xaml.dll"
+    ],
+    "targetFramework": "netcoreapp3.1",
+    "typeReuseMode": "All"
+  }
+}

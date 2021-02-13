@@ -8,7 +8,7 @@ namespace PcPartsScrap.Wcf.ConsoleHost
 	{
 		private static void Main(string[] args)
 		{
-			ServiceHost hostManager = new ServiceHost(typeof(PcPartsManager));
+			ServiceHost hostManager = new ServiceHost(typeof(PcPartsService));
 
 			hostManager.Open();
 
