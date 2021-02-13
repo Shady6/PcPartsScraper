@@ -5,6 +5,8 @@ _csv/
 shops_debug.json
 secret.txt
 PythonScraper/TODO.txt
+.idea/
+exchangeRates.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
