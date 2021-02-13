@@ -58,7 +58,7 @@ def trimRemoveSpecialCharacters(text):
 
 def parsePrice(text, currency):
     text = trim(removeHtmlSpecialCharacters(text))
-    amount = Price.fromstring(text).amount
+    amount = Price.fromstring(text).amount if Price.fromstring(text).amount else 0
 
     if currency != "PLN":
         return int(float(amount) * getExchangeRate(currency))

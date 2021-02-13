@@ -12,19 +12,23 @@ class PcPartsSpider(Spider):
 
     def CreatePcPartsList(self):
         parentContainer = self.soup.select(self.cssSelectors['container'])
+        parentContainer = parentContainer[0].contents if len(parentContainer) == 1 else parentContainer
         pcParts = []
 
         # For debug purpose decrease requests        
         maxiterations = 1
         i = 0
 
-        for child in parentContainer:
+        for child in (c for c in parentContainer if c != "\n"):
             # uncomment for debugging
-            if i < maxiterations: 
-                pcPart = self.GetText({"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}, child)                               
+            # if i < maxiterations:
+            pcPart = self.GetText({"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}, child)
+            try:
                 pcPart["producentCode"] = self.GetProducentCode(child)
                 pcParts.append(pcPart)
-                i += 1
+            except:
+                print("Couldn't get producent code")
+            i += 1
         return pcParts    
 
 

@@ -1,9 +1,306 @@
-{      
+{
   "products": [
     {
-      "name": "rtx 1660",
+      "name": "RTX 3090",
       "category": "Graphics Cards",
-      "mustInclude": ["geforce"]
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 3080",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 2080",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 2070",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 1660",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 1650",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "RTX 2060",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "geforce"
+      ]
+    },
+    {
+      "name": "Radeon RX 6900 XT",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 6800 XT",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 6800",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 5700 XT",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 5700",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 5600 XT",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "Radeon RX 5500 XT",
+      "category": "Graphics Cards",
+      "mustInclude": [
+        "radeon"
+      ]
+    },
+    {
+      "name": "AMD Threadripper",
+      "category": "Processors",
+      "mustInclude": [
+        "AMD"
+      ]
+    },
+    {
+      "name": "AMD Ryzen 9",
+      "category": "Processors",
+      "mustInclude": [
+        "AMD"
+      ]
+    },
+    {
+      "name": "AMD Ryzen 7",
+      "category": "Processors",
+      "mustInclude": [
+        "AMD"
+      ]
+    },
+    {
+      "name": "AMD Ryzen 5",
+      "category": "Processors",
+      "mustInclude": [
+        "AMD"
+      ]
+    },
+    {
+      "name": "Intel i9",
+      "category": "Processors",
+      "mustInclude": [
+        "intel"
+      ]
+    },
+    {
+      "name": "Intel i7",
+      "category": "Processors",
+      "mustInclude": [
+        "intel"
+      ]
+    },
+    {
+      "name": "Intel i5",
+      "category": "Processors",
+      "mustInclude": [
+        "intel"
+      ]
+    },
+    {
+      "name": "RAM 64GB",
+      "category": "RAM",
+      "mustInclude": []
+    },
+    {
+      "name": "RAM 32GB",
+      "category": "RAM",
+      "mustInclude": []
+    },
+    {
+      "name": "RAM 16GB",
+      "category": "RAM",
+      "mustInclude": []
+    },
+    {
+      "name": "M.2 2TB",
+      "category": "M.2 SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "M.2 1TB",
+      "category": "M.2 SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "M.2 500GB",
+      "category": "M.2 SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "M.2 256GB",
+      "category": "M.2 SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "SATA 2TB",
+      "category": "SATA SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "SATA 1TB",
+      "category": "SATA SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "SATA 500GB",
+      "category": "SATA SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "SATA 256GB",
+      "category": "SATA SSD",
+      "mustInclude": []
+    },
+    {
+      "name": "Monitor 24 144hz",
+      "category": "Monitors",
+      "mustInclude": []
+    },
+    {
+      "name": "Monitor 24",
+      "category": "Monitors",
+      "mustInclude": []
+    },
+    {
+      "name": "Monitor 27 144hz",
+      "category": "Monitors",
+      "mustInclude": []
+    },
+    {
+      "name": "Monitor 27",
+      "category": "Monitors",
+      "mustInclude": []
+    },
+    {
+      "name": "Z390",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "B365",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "B450",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "Standard ATX",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "Micro ATX",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "E ATX",
+      "category": "Motherboards",
+      "mustInclude": []
+    },
+    {
+      "name": "SilentiumPC",
+      "category": "Case",
+      "mustInclude": []
+    },
+    {
+      "name": "Cooler Master",
+      "category": "Case",
+      "mustInclude": []
+    },
+    {
+      "name": "be quiet!",
+      "category": "Case",
+      "mustInclude": []
+    },
+    {
+      "name": "Thermaltake",
+      "category": "Case",
+      "mustInclude": []
+    },
+    {
+      "name": "AeroCool",
+      "category": "Case",
+      "mustInclude": []
+    },
+    {
+      "name": "80 PLUS",
+      "category": "Power Supply",
+      "mustInclude": []
+    },
+    {
+      "name": "80 PLUS Bronze",
+      "category": "Power Supply",
+      "mustInclude": []
+    },
+    {
+      "name": "80 PLUS Gold",
+      "category": "Power Supply",
+      "mustInclude": []
+    },
+    {
+      "name": "80 PLUS Platinum",
+      "category": "Power Supply",
+      "mustInclude": []
+    },
+    {
+      "name": "80 PLUS Titanium",
+      "category": "Power Supply",
+      "mustInclude": []
     }
   ],
   "shops": [
@@ -13,11 +310,11 @@
       "baseUrl": "https://www.overclockers.co.uk/",
       "query": "search?sSearch=",
       "cssSelectors": {
-        "container": "#listing-4col",        
+        "container": "#listing-4col",
         "name": ".ProductTitle",
         "price": ".price",
-        "linkToProduct": ".hover_bg",              
-        "producentCode": "#detail_bottom .top_detail:first-child"        
+        "linkToProduct": ".hover_bg",
+        "producentCode": "#detail_bottom .top_detail:first-child"
       }
     },
     {
@@ -30,7 +327,7 @@
         "name": "a > h3",
         "price": ".sc-6n68ef-0",
         "linkToProduct": "a.sc-1h16fat-0",
-        "producentCode": "div.sc-1bker4h-3.fCkhjh span.sc-1bker4h-7.bUpJXr"
+        "producentCode": "#app > div.sc-14ybyi4-0.dTlKOe > div > div.sc-1re71we-0.jXoNxu > div.sc-bwzfXH.gsxhsp-0.bwCHQA.sc-htpNat.kNOaST > div.sc-bwzfXH.fdgizb > div.sc-1bker4h-11.dtpgOO > div > div.sc-1bker4h-2.hKdfXQ > div > div > span.sc-1bker4h-9.ldcMZw > span.sc-1bker4h-7.hdPhlC"
       }
     },
     {
@@ -42,9 +339,9 @@
         "container": ".product-entry2-wrap > li",
         "name": ".pe2-head > a",
         "price": ".price > .proper",
-        "linkToProduct": null,              
-        "producentCode": ".pe2-codes"        
-      }     
+        "linkToProduct": null,
+        "producentCode": ".pe2-codes"
+      }
     },
     {
       "shopName": "Morele",
@@ -52,11 +349,11 @@
       "baseUrl": "https://www.morele.net",
       "query": "/wyszukiwarka/0/0/,,,,,,,,,,,,/1/?q=",
       "cssSelectors": {
-        "container": ".cat-list-products > div",        
+        "container": ".cat-list-products > div",
         "name": ".cat-product-name > .productLink",
         "price": ".price-new",
-        "linkToProduct": ".cat-product-name .productLink",              
-        "producentCode": ".specification-table .table-info-item:nth-child(2) .info-item"        
+        "linkToProduct": ".cat-product-name .productLink",
+        "producentCode": ".specification-table .table-info-item:nth-child(2) .info-item"
       }
     }
   ]

@@ -29,7 +29,7 @@ class Spider:
             response.close()
 
             #for debug purposes                    
-            saveWebPageToFile(urllib.parse.urlparse(url).netloc.replace(".", ""), str(content))
+            # saveWebPageToFile(urllib.parse.urlparse(url).netloc.replace(".", ""), str(content))
             return content    
         except:
             print(f"Failed connecting to {url}")
