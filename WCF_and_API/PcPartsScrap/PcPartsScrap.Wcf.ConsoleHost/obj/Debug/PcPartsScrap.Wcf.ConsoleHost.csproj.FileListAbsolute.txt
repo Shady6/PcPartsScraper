@@ -1,0 +1,12 @@
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.ConsoleHost.exe.config
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.ConsoleHost.exe
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.ConsoleHost.pdb
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.Services.dll
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.Contracts.dll
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.Services.pdb
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\bin\Debug\PcPartsScrap.Wcf.Contracts.pdb
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\obj\Debug\PcPartsScrap.Wcf.ConsoleHost.csprojAssemblyReference.cache
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\obj\Debug\PcPartsScrap.Wcf.ConsoleHost.csproj.CoreCompileInputs.cache
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\obj\Debug\PcPartsScrap.Wcf.ConsoleHost.csproj.CopyComplete
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\obj\Debug\PcPartsScrap.Wcf.ConsoleHost.exe
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.ConsoleHost\obj\Debug\PcPartsScrap.Wcf.ConsoleHost.pdb
