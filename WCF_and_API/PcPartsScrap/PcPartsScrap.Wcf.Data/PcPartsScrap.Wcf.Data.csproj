@@ -55,6 +55,10 @@
     <Compile Include="Entities\ExchangeRate.cs" />
     <Compile Include="PcPartsDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ExchangeRatesRepository.cs" />
+    <Compile Include="Repository\Interfaces\IExchangeRatesRepository.cs" />
+    <Compile Include="Repository\Interfaces\IPcPartsRepository.cs" />
+    <Compile Include="Repository\PcPartsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

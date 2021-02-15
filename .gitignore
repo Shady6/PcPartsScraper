@@ -8,6 +8,7 @@ PythonScraper/TODO.txt
 .idea/
 exchangeRates.json
 .vs/
+connect_to_wifi_and_run_scrapper.bat
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

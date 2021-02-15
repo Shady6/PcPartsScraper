@@ -7,3 +7,8 @@ C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Ser
 C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\obj\Debug\PcPartsScrap.Wcf.Services.csproj.CopyComplete
 C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\obj\Debug\PcPartsScrap.Wcf.Services.dll
 C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\obj\Debug\PcPartsScrap.Wcf.Services.pdb
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\bin\Debug\PcPartsScrap.Wcf.Data.dll
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\bin\Debug\EntityFramework.dll
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\bin\Debug\PcPartsScrap.Wcf.Data.pdb
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\bin\Debug\PcPartsScrap.Wcf.Data.dll.config
+C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Services\bin\Debug\EntityFramework.xml

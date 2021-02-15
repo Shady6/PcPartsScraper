@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PcPartsScrap.Wcf.Data
 {
-	class PcPartsDbContext : DbContext
+	public class PcPartsDbContext : DbContext
 	{
 		public PcPartsDbContext() : base("name=PCPartsDB")
 		{

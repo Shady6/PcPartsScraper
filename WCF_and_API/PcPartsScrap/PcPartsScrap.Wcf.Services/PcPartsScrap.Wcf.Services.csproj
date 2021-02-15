@@ -49,6 +49,10 @@
       <Project>{D7EF4EB3-34FE-492F-BAED-425F477E4C56}</Project>
       <Name>PcPartsScrap.Wcf.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PcPartsScrap.Wcf.Data\PcPartsScrap.Wcf.Data.csproj">
+      <Project>{5DBC8F16-E458-4DDE-A992-E1653082D1F9}</Project>
+      <Name>PcPartsScrap.Wcf.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
