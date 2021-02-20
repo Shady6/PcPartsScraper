@@ -75,7 +75,7 @@ if not debug:
                         "items": spider.CreatePcPartsList()
                     })
                 except:
-                    print(f"Couldn't connect with {shop['shopName']}, url: { shop['baseUrl'] + shop['query'] + product['name']}")
+                    print(f"Couldn't connect with {shop['shopName']}, url: { shop['baseUrl'] + queryPrefix + shop['query'] + product['name']}")
         preParsePcParts.append(scrapedPcParts)
 
     saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))
