@@ -24,29 +24,40 @@ def parsePcPartsData(pcParts):
 
 
 def parseProducentCode(text):
-    charactersToRemove = r"[\[\]:]"
+    charactersToRemove = r"[:\n|]"
     wordsToRemove = ["kod producenta", "stock code", "kod systemowy"]
 
     text = removeUnwantedWords(wordsToRemove, text)
-    text = SearchAndRemove("\n", text, False)
-    text = re.sub(charactersToRemove, "", text)
+    # text = SearchAndRemove("\n", text, False)
+    text = trim(re.sub(charactersToRemove, "", text))
+
+    leftBracketI = text.index("[") if "[" in text else None
+    rightBracketI = text.index("]") if "]" in text else None
+    if leftBracketI != None and rightBracketI != None:
+        text = text[leftBracketI + 1: rightBracketI]
+    else:
+        text = trim(re.sub(r"[\[\]]", "", text))
+        text = [entry for entry in text.split(" ") if entry != ""][0] if text != "" else ""
 
     return trim(text)
 
 
 def removeUnwantedWords(wordList, text):
     for word in wordList:
-        text = SearchAndRemove(word, text, True)
+        text = SearchAndRemove(word, text)
     return text
 
 
-def SearchAndRemove(textToSearch, text, removeLeft):
+def SearchAndRemove(textToSearch, text, takeLeft = None):
     wordToRemoveSearchResult = re.search(
         textToSearch, text, flags=re.IGNORECASE)
 
     if wordToRemoveSearchResult != None:
-        text = text[wordToRemoveSearchResult.end(
-        ) + 1:] if removeLeft else text[:wordToRemoveSearchResult.start()]
+        if (takeLeft == None):
+            text = re.sub(textToSearch, "", text, flags=re.I)
+        else:
+            text = text[wordToRemoveSearchResult.end(
+            ) + 1:] if takeLeft else text[:wordToRemoveSearchResult.start()]
     return text
 
 

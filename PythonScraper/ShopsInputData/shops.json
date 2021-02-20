@@ -301,14 +301,112 @@
       "name": "80 PLUS Titanium",
       "category": "Power Supply",
       "mustInclude": []
+    },
+    {
+      "name": "Iphone 12",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Samsung Galaxy S21",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Samsung Galaxy Note 20",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Pixel 4A",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Pixel 5",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "OnePlus 8",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Galaxy Fold 2",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Xiaomi Mi 10",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "LG V60",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Galaxy A71",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Sony Xperia 5",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Sony Xperia 1",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Poco X3",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone SE",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone SE 2020",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone 6",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone 7",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone 8",
+      "category": "Smartphone",
+      "mustInclude": []
+    },
+    {
+      "name": "Iphone X",
+      "category": "Smartphone",
+      "mustInclude": []
     }
   ],
   "shops": [
     {
-      "shopName": "OverclockersUK",
+      "shopName": "overclockers.co.uk",
       "currency": "GBP",
-      "baseUrl": "https://www.overclockers.co.uk/",
-      "query": "search?sSearch=",
+      "baseUrl": "https://www.overclockers.co.uk",
+      "excludeCategories": [
+        "Smartphone"
+      ],
+      "query": "/search?sSearch=",
       "cssSelectors": {
         "container": "#listing-4col",
         "name": ".ProductTitle",
@@ -318,7 +416,34 @@
       }
     },
     {
-      "shopName": "xKom",
+      "shopName": "gputracker.eu",
+      "currency": "EUR",
+      "baseUrl": "https://www.gputracker.eu/en/search/category/",
+      "queryPrefix": {
+        "Graphics Cards": "1",
+        "Processor": "2",
+        "M.2 SSD": "4",
+        "SATA SSD": "4",
+        "Power Supply": "6",
+        "Case": "7",
+        "Motherboards": "8"
+      },
+      "excludeCategories": [
+        "Smartphone",
+        "RAM"
+      ],
+      "query": "/search?textualSearch=",
+      "cssSelectors": {
+        "container": "#facet-search-results > div:nth-child(2) > div > div",
+        "name": "div > a > div > div.col-md-9.col-12.text-md-left.text-center > h3",
+        "price": "div > a > div > div.col-md-3.col-12 > div > div.font-weight-bold.text-secondary.w-100.d-block.h1.mb-2 > span",
+        "originalShop": "div > a > div > div.col-md-9.col-12.text-md-left.text-center > span.text-muted.d-block.lead.mb-2",
+        "linkToProduct": "div > div > div.col-xl-6.text-xl-right.col-12.text-center.mb-xl-0.mb-3.mx-auto > a",
+        "producentCode": "#page-content > div.row.pb-5.text-muted.text-center > div.col-12.col-md-4.text-md-right > span:nth-child(2)"
+      }
+    },    
+    {
+      "shopName": "x-kom.pl",
       "currency": "PLN",
       "baseUrl": "https://www.x-kom.pl",
       "query": "/szukaj?q=",
@@ -331,7 +456,7 @@
       }
     },
     {
-      "shopName": "Komputronik",
+      "shopName": "komputronik.pl",
       "currency": "PLN",
       "baseUrl": "https://www.komputronik.pl",
       "query": "/search/category/1?query=",
@@ -344,7 +469,7 @@
       }
     },
     {
-      "shopName": "Morele",
+      "shopName": "morele.net",
       "currency": "PLN",
       "baseUrl": "https://www.morele.net",
       "query": "/wyszukiwarka/0/0/,,,,,,,,,,,,/1/?q=",

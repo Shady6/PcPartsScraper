@@ -37,7 +37,7 @@ class Spider:
 
 
     def CreateSoup(self, content):
-        return bs(content, 'html.parser')  
+        return bs(content, "html5lib")
 
 
     def GetAbsoluteUrl(self, cssSelector, htmlElement=None):

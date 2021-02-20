@@ -59,21 +59,23 @@ if not debug:
         }
 
         for product in shopsData["products"]:
-            print(f"Searching in: {shop['shopName']}, for: {product['name']}")
-            try:
-                spider = PcPartsSpider(
-                    shop["baseUrl"],
-                    shop["query"] + product["name"],
-                    shop["cssSelectors"]
-                )
-                scrapedPcParts["products"].append({
-                    "searchQuery": product["name"],
-                    "mustInclude": product["mustInclude"],
-                    "category": product["category"],
-                    "items": spider.CreatePcPartsList()
-                })
-            except:
-                print(f"Couldn't connect with {shop['shopName']}, url: { shop['baseUrl'] + shop['query'] + product['name']}")
+            if "excludeCategories" not in shop or product["category"] not in shop["excludeCategories"]:
+                print(f"Searching in: {shop['shopName']}, for: {product['name']}")
+                try:
+                    queryPrefix = shop["queryPrefix"][product["category"]] if "queryPrefix" in shop else ""
+                    spider = PcPartsSpider(
+                        shop["baseUrl"],
+                        queryPrefix + shop["query"] + product["name"],
+                        shop["cssSelectors"]
+                    )
+                    scrapedPcParts["products"].append({
+                        "searchQuery": product["name"],
+                        "mustInclude": product["mustInclude"],
+                        "category": product["category"],
+                        "items": spider.CreatePcPartsList()
+                    })
+                except:
+                    print(f"Couldn't connect with {shop['shopName']}, url: { shop['baseUrl'] + shop['query'] + product['name']}")
         preParsePcParts.append(scrapedPcParts)
 
     saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))

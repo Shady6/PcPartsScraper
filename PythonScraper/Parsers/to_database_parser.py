@@ -8,7 +8,6 @@ def parsePcPartsToDbFormat(pcParts):
     now = datetime.now()
     for entry in pcParts:
         dbEntry = {}
-        shopName = entry["shopName"]
         for product in entry["products"]:
             productName = product["searchQuery"]
             category = product["category"]
@@ -16,6 +15,10 @@ def parsePcPartsToDbFormat(pcParts):
                 detailedName = item["name"]
                 price = item["price"]
                 producentCode = item["producentCode"]
+                if "originalShop" in item:
+                    shopName = item["originalShop"]
+                else:
+                    shopName = entry["shopName"]
 
                 databaseFormatResult.append({
                 "shopName": shopName,
