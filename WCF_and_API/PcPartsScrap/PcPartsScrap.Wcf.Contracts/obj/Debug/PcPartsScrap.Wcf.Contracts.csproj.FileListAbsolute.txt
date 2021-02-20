@@ -1,6 +1,0 @@
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\bin\Debug\PcPartsScrap.Wcf.Contracts.dll
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\bin\Debug\PcPartsScrap.Wcf.Contracts.pdb
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\obj\Debug\PcPartsScrap.Wcf.Contracts.csprojAssemblyReference.cache
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\obj\Debug\PcPartsScrap.Wcf.Contracts.csproj.CoreCompileInputs.cache
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\obj\Debug\PcPartsScrap.Wcf.Contracts.dll
-C:\Mikolaj\DEV\Python\PcPartsScrap\WCF_and_API\PcPartsScrap\PcPartsScrap.Wcf.Contracts\obj\Debug\PcPartsScrap.Wcf.Contracts.pdb
