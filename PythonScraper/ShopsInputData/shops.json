@@ -100,49 +100,49 @@
     },
     {
       "name": "AMD Threadripper",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "AMD"
       ]
     },
     {
       "name": "AMD Ryzen 9",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "AMD"
       ]
     },
     {
       "name": "AMD Ryzen 7",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "AMD"
       ]
     },
     {
       "name": "AMD Ryzen 5",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "AMD"
       ]
     },
     {
       "name": "Intel i9",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "intel"
       ]
     },
     {
       "name": "Intel i7",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "intel"
       ]
     },
     {
       "name": "Intel i5",
-      "category": "Processors",
+      "category": "Processor",
       "mustInclude": [
         "intel"
       ]
