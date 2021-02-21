@@ -3,6 +3,7 @@ from bs4 import Tag
 
 
 class PcPartsSpider(Spider):
+    __slots__ = ["cssSelectors"]
     def __init__(self, baseUrl, urlExtend, cssSelectors, headers={
         'user-agent':
             'Mozilla/5.0'
@@ -23,18 +24,18 @@ class PcPartsSpider(Spider):
 
         for child in (c for c in parentContainer if isinstance(c, Tag)):
             # uncomment for debugging
-            # if i < maxiterations:
-            propertiesToSelect = {"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}
-            if "originalShop" in self.cssSelectors:
-                propertiesToSelect["originalShop"] = self.cssSelectors["originalShop"]
+            if i < maxiterations:
+                propertiesToSelect = {"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}
+                if "originalShop" in self.cssSelectors:
+                    propertiesToSelect["originalShop"] = self.cssSelectors["originalShop"]
 
-            pcPart = self.GetText(propertiesToSelect, child)
-            try:
-                pcPart["producentCode"] = self.GetProducentCode(child)
-                pcParts.append(pcPart)
-            except:
-                print("Couldn't get producent code")
-            i += 1
+                pcPart = self.GetText(propertiesToSelect, child)
+                try:
+                    pcPart["producentCode"] = self.GetProducentCode(child)
+                    pcParts.append(pcPart)
+                except:
+                    print("Couldn't get producent code")
+                i += 1
         return pcParts
 
     def GetProducentCode(self, htmlElement):

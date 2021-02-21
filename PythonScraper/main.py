@@ -12,34 +12,43 @@ from DatabaseAccess.save_data import saveAll
 def dataStepsToFile(preParsePcParts):
 
     postParsePcParts = parsePcPartsData(preParsePcParts)
-    saveJsonToFile("postParsePcParts", json.dumps(postParsePcParts))
+    # saveJsonToFile("postParsePcParts", json.dumps(postParsePcParts))
+    saveJsonToFile("_all_postParsePcParts", json.dumps(postParsePcParts), True)
 
     pcPartsTrimmed = filterRecordsNotContainingKeyword(postParsePcParts)
-    saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
+    # saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
 
     pcPartsFilteredByProducentCode = filterRecordsWithInvalidProducentCode(postParsePcParts)
-    saveJsonToFile("pcPartsFilteredByProducentCode", json.dumps(pcPartsFilteredByProducentCode))
-
-    pcPartsDbFormat = parsePcPartsToDbFormat(pcPartsFilteredByProducentCode)
-    saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))
-    saveToCsv("pcPartsDbFormat", pcPartsDbFormat)
+    # saveJsonToFile("pcPartsFilteredByProducentCode", json.dumps(pcPartsFilteredByProducentCode))
 
     producentCodesList = createProducentCodesList(postParsePcParts)
-    saveJsonToFile("producentCodes", json.dumps(producentCodesList))
+    # saveJsonToFile("producentCodes", json.dumps(producentCodesList))
+
+    pcPartsDbFormat = parsePcPartsToDbFormat(pcPartsFilteredByProducentCode)
+    # saveJsonToFile("pcPartsDbFormat", json.dumps(pcPartsDbFormat))
+    # saveToCsv("pcPartsDbFormat", pcPartsDbFormat)
+    saveToCsv("_all_pcPartsDbFormat", pcPartsDbFormat, True)
 
     producentCodesDbFormat = parseProducentCodesToDbFormat(producentCodesList)
-    saveJsonToFile("producentCodesDbFormat",
-                   json.dumps(producentCodesDbFormat))
+    # saveJsonToFile("producentCodesDbFormat",json.dumps(producentCodesDbFormat))
 
+    print(f"Attempting to save data from {preParsePcParts['shopName']} to database.")
     saveAll()
 
 
 def loadShopsData():
     shopsData = ""
 
-    with open("./ShopsInputData/shops.json") as f:
+    with open("./ShopsInputData/shops_debug.json") as f:
         shopsData = json.load(f)
     return shopsData
+
+try:
+    open("./_json/_all_preParsePcParts.json", "w").close()
+    open("./_json/_all_postParsePcParts.json", "w").close()
+    open("./csv/_all_pcPartsDbFormat.csv", "w").close()
+except:
+    print("No _all files founds, they will be created")
 
 
 debug = False
@@ -48,10 +57,7 @@ if not debug:
 
     shopsData = loadShopsData()
 
-    preParsePcParts = []
-
     for shop in shopsData["shops"]:
-
         scrapedPcParts = {
             "shopName": shop["shopName"],
             "currency": shop["currency"],
@@ -76,11 +82,10 @@ if not debug:
                     })
                 except:
                     print(f"Couldn't connect with {shop['shopName']}, url: { shop['baseUrl'] + queryPrefix + shop['query'] + product['name']}")
-        preParsePcParts.append(scrapedPcParts)
-
-    saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))
-
-    dataStepsToFile(preParsePcParts)
+        preParsePcParts = scrapedPcParts
+        # saveJsonToFile("preParsePcParts", json.dumps(preParsePcParts))
+        saveJsonToFile("_all_preParsePcParts", json.dumps(preParsePcParts), True)
+        dataStepsToFile(preParsePcParts)
 
 else:
     preParsePcParts = None

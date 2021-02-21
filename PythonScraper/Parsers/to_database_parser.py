@@ -6,30 +6,29 @@ def parsePcPartsToDbFormat(pcParts):
     databaseFormatResult = []
 
     now = datetime.now()
-    for entry in pcParts:
-        dbEntry = {}
-        for product in entry["products"]:
-            productName = product["searchQuery"]
-            category = product["category"]
-            for item in product["items"]:
-                detailedName = item["name"]
-                price = item["price"]
-                producentCode = item["producentCode"]
-                if "originalShop" in item:
-                    shopName = item["originalShop"]
-                else:
-                    shopName = entry["shopName"]
+    dbEntry = {}
+    for product in pcParts["products"]:
+        productName = product["searchQuery"]
+        category = product["category"]
+        for item in product["items"]:
+            detailedName = item["name"]
+            price = item["price"]
+            producentCode = item["producentCode"]
+            if "originalShop" in item:
+                shopName = item["originalShop"]
+            else:
+                shopName = pcParts["shopName"]
 
-                databaseFormatResult.append({
-                "shopName": shopName,
-                "productName": productName,
-                "category": category,
-                "detailedName": detailedName,
-                "price": price,
-                "producentCode": producentCode,  
-                "listingDate": time.strftime('%Y-%m-%d %H:%M:%S'),
-                "id": ""
-            })
+            databaseFormatResult.append({
+            "shopName": shopName,
+            "productName": productName,
+            "category": category,
+            "detailedName": detailedName,
+            "price": price,
+            "producentCode": producentCode,
+            "listingDate": time.strftime('%Y-%m-%d %H:%M:%S'),
+            "id": ""
+        })
 
     return databaseFormatResult
 

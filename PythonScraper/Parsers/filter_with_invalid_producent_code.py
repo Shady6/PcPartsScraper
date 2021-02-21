@@ -3,10 +3,9 @@ import copy
 def filterRecordsWithInvalidProducentCode(pcParts):
     pcPartsCopy = copy.deepcopy(pcParts)
 
-    for entry in pcPartsCopy:
-        for product in entry["products"]:
-            product["items"] = [item for item in product["items"] if
-            isValidProducentCode(item["producentCode"])]
+    for product in pcPartsCopy["products"]:
+        product["items"] = [item for item in product["items"] if
+        isValidProducentCode(item["producentCode"])]
             
     return pcPartsCopy
 

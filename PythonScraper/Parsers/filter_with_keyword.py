@@ -3,10 +3,9 @@ import copy
 def filterRecordsNotContainingKeyword(pcParts):
     pcPartsCopy = copy.deepcopy(pcParts)
 
-    for entry in pcPartsCopy:
-        for product in entry["products"]:
-            product["items"] = [item for item in product["items"] if
-            containsKeywords(item["name"], product["mustInclude"])]
+    for product in pcPartsCopy["products"]:
+        product["items"] = [item for item in product["items"] if
+        containsKeywords(item["name"], product["mustInclude"])]
             
     return pcPartsCopy
 

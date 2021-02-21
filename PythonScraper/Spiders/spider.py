@@ -6,7 +6,8 @@ from Utils.url import *
 from Utils.file_saver import saveWebPageToFile
 import urllib.parse
 
-class Spider:
+class Spider(object):
+    __slots__ = ["baseUrl", "urlExtend", "headers", "soup"]
     def __init__(self, baseUrl, urlExtend, headers={
         'user-agent': 
         'Mozilla/5.0'        

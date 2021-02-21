@@ -7,20 +7,18 @@ from price_parser import Price
 
 def parsePcPartsData(pcParts):
 
-    pcPartsCopy = copy.deepcopy(pcParts)
+    # pcPartsCopy = copy.deepcopy(pcParts)
 
-    for entry in pcPartsCopy:
-        for product in entry["products"]:
-            for item in product["items"]:
-                for key in item:
-                    if key == "price":
-                        item[key] = parsePrice(item[key], entry["currency"])
-                    elif key == "producentCode":
-                        item[key] = parseProducentCode(item[key])
-                    else:
-                        item[key] = trimRemoveSpecialCharacters(item[key])
-
-    return pcPartsCopy
+    for product in pcParts["products"]:
+        for item in product["items"]:
+            for key in item:
+                if key == "price":
+                    item[key] = parsePrice(item[key], pcParts["currency"])
+                elif key == "producentCode":
+                    item[key] = parseProducentCode(item[key])
+                else:
+                    item[key] = trimRemoveSpecialCharacters(item[key])
+    return pcParts
 
 
 def parseProducentCode(text):

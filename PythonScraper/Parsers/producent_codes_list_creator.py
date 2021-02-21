@@ -2,13 +2,12 @@ def createProducentCodesList(pcParts):
 
     producentCodes = []
 
-    for entry in pcParts:
-        for product in entry["products"]:                        
-            currentCategoryItems = (
-                tryAddCategory(product["category"], producentCodes)
-            )                        
-            for item in product["items"]:                
-                tryAddProducentCode(item, currentCategoryItems)
+    for product in pcParts["products"]:
+        currentCategoryItems = (
+            tryAddCategory(product["category"], producentCodes)
+        )
+        for item in product["items"]:
+            tryAddProducentCode(item, currentCategoryItems)
 
     return producentCodes
 
