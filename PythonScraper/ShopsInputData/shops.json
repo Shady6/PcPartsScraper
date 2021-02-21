@@ -399,7 +399,7 @@
     }
   ],
   "shops": [
-    {
+        {
       "shopName": "overclockers.co.uk",
       "currency": "GBP",
       "baseUrl": "https://www.overclockers.co.uk",
@@ -424,6 +424,7 @@
         "Processor": "2",
         "M.2 SSD": "4",
         "SATA SSD": "4",
+        "Monitors": "5",
         "Power Supply": "6",
         "Case": "7",
         "Motherboards": "8"

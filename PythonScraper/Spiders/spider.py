@@ -5,19 +5,37 @@ import logging
 from Utils.url import *
 from Utils.file_saver import saveWebPageToFile
 import urllib.parse
+import asyncio
+import aiohttp
 
 class Spider(object):
     __slots__ = ["baseUrl", "urlExtend", "headers", "soup"]
-    def __init__(self, baseUrl, urlExtend, headers={
+
+    @classmethod
+    async def create(cls, baseUrl, urlExtend, headers={
         'user-agent': 
         'Mozilla/5.0'        
     }):
+        self = Spider()
         self.baseUrl = baseUrl
         self.urlExtend = urlExtend
         self.headers = headers   
 
-        content = self.LoadContent(self.baseUrl + self.urlExtend)
+        content = await self.LoadContentAsync(self.baseUrl + self.urlExtend)
         self.soup = self.CreateSoup(content)
+        return self
+
+    async def LoadContentAsync(self, url):
+        try:
+            url = parseStringToUrl(url)
+            print(f"Sending request to {url}")
+            async with aiohttp.ClientSession() as session:
+                async with session.get(url=url, headers=self.headers) as response:
+                    resp = await response.read()
+                    return resp
+        except Exception as e:
+            print(f"Unable to get url {url}, due to {e.__class__}.")
+            return None
 
 
     def LoadContent(self, url):
