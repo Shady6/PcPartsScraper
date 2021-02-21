@@ -1,5 +1,6 @@
 ﻿using PcPartsScrap.Wcf.Contracts;
 using PcPartsScrap.Wcf.Data.Repository.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace PcPartsScrap.Wcf.Services
@@ -15,7 +16,8 @@ namespace PcPartsScrap.Wcf.Services
 
 		public List<string> GetCategories()
 		{
-			return _pcPartsRepo.GetCategories();
+			throw new NotImplementedException();
+			//return _pcPartsRepo.GetCategories();
 		}
 	}
 }

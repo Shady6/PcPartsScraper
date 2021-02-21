@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PcPartsScrap.Wcf.Data.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace PcPartsScrap.Wcf.Data.Repository.Interfaces
 {
 	public interface IPcPartsRepository
 	{
-		List<string> GetCategories();
+
 	}
 }
