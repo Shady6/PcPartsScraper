@@ -13,9 +13,11 @@ namespace PcPartsScrap.Api.Data.Repository
 
 		public PcPartsRepository(PcPartsDbContext dbContext)
 		{
-			_dbContext = dbContext;			
+			_dbContext = dbContext;
 		}
 
+		// TODO clean clode here, instead of multiple arguments change to one filter
+		// add automapper to not return id from db
 		public IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinTimeAndPrice(
 			string category,
 			string[] producentCodes,
@@ -26,7 +28,7 @@ namespace PcPartsScrap.Api.Data.Repository
 			)
 		{
 			return
-				GetItemsInCategoryWithinCurrentPrice(category, producentCodes, minPrice, maxPrice,
+				GetItemsInCategoryWithinPrice(category, producentCodes, minPrice, maxPrice, maxListingDate,
 				GetItemsInCategoryWithinTime(category, producentCodes, minListingDate, maxListingDate));
 		}
 
@@ -43,34 +45,71 @@ namespace PcPartsScrap.Api.Data.Repository
 			if (minListingDate == null && maxListingDate == null)
 				return result;
 			else if (minListingDate == null)
-				return result.SelectMany(g => g)
-					.Where(p => p.ListingDate <= maxListingDate)
-					.AsEnumerable()
-					.GroupBy(p => p.ProducentCode);
+				result
+				   .Select(g => new Grouping<string, PCParts>
+				   {
+					   Key = g.Key,
+					   Elements = g.Where(p => p.ListingDate <= maxListingDate)
+				   });
 			else
-				return result.SelectMany(g => g)
-					.Where(p => p.ListingDate >= minListingDate && p.ListingDate <= maxListingDate)
-					.AsEnumerable()
-					.GroupBy(p => p.ProducentCode);
+				result
+				   .Select(g => new Grouping<string, PCParts>
+				   {
+					   Key = g.Key,
+					   Elements = g.Where(p => p.ListingDate >= minListingDate && p.ListingDate <= maxListingDate)
+				   });
+
+			return OrderGroupByDateDesc(result);
 		}
 
-		public IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinCurrentPrice(
+		public IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinPrice(
 			string category,
 			string[] producentCodes,
 			int? minPrice = null,
 			int? maxPrice = null,
+			DateTime? tillDate = null,
 			IEnumerable<IGrouping<string, PCParts>> itemsInCategory = null
 			)
 		{
-			Func<IGrouping<string, PCParts>, int> GetLatestPrice = g => g.Where(p => p.ListingDate == g.Max(pcp => pcp.ListingDate)).First().Price;
 			var result = itemsInCategory ?? GetItemsInCategory(category, producentCodes);
+			tillDate = tillDate ?? DateTime.Now;
 
 			if (minPrice == null && maxPrice == null)
 				return result;
 			else if (minPrice == null)
-				return result.Where(g => GetLatestPrice(g) <= maxPrice);
+				result
+				   .Select(g => new Grouping<string, PCParts>
+				   {
+					   Key = g.Key,
+					   Elements = GetLatestPriceTillDate(g, (DateTime)tillDate) <= maxPrice ? g : new List<PCParts>()
+				   });
 			else
-				return result.Where(g => GetLatestPrice(g) >= minPrice && GetLatestPrice(g) <= maxPrice);
+				result
+					.Select(g =>
+					{
+						int latestPriceInGroup = GetLatestPriceTillDate(g, (DateTime)tillDate);
+						return new Grouping<string, PCParts>
+						{
+							Key = g.Key,
+							Elements = latestPriceInGroup >= minPrice && latestPriceInGroup <= maxPrice ? g : new List<PCParts>()
+						};
+					});
+
+			return OrderGroupByDateDesc(result);
+		}
+
+		private IEnumerable<IGrouping<string, PCParts>> OrderGroupByDateDesc(IEnumerable<IGrouping<string, PCParts>> result)
+		{
+			return result.SelectMany(g => g).OrderByDescending(p => p.ListingDate).GroupBy(p => p.ProducentCode);
+		}		
+
+		private int GetLatestPriceTillDate(IGrouping<string, PCParts> group, DateTime date)
+		{
+			PCParts latestPart = group.Where(p => p.ListingDate == group.Max(
+				pcp => pcp.ListingDate <= date ? pcp.ListingDate : DateTime.MinValue))
+				.FirstOrDefault();
+
+			return latestPart == null ? 0 : latestPart.Price;
 		}
 
 		public IEnumerable<string> GetCategories() =>

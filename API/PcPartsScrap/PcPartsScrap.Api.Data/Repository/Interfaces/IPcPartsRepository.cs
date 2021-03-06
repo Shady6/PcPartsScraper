@@ -11,7 +11,7 @@ namespace PcPartsScrap.Api.Data.Repository.Interfaces
 
 		IEnumerable<IGrouping<string, PCParts>> GetItemsInCategory(string category, string[] producentCodes);
 
-		IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinCurrentPrice(string category, string[] producentCodes, int? minPrice = null, int? maxPrice = null, IEnumerable<IGrouping<string, PCParts>> itemsInCategory = null);
+		IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinPrice(string category, string[] producentCodes, int? minPrice = null, int? maxPrice = null, DateTime? tillDate = null, IEnumerable<IGrouping<string, PCParts>> itemsInCategory = null);
 
 		IEnumerable<IGrouping<string, PCParts>> GetItemsInCategoryWithinTime(string category, string[] producentCodes, DateTime? minListingDate = null, DateTime? maxListingDate = null, IEnumerable<IGrouping<string, PCParts>> itemsInCategory = null);
 

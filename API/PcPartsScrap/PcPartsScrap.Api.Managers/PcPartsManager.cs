@@ -77,7 +77,7 @@ namespace PcPartsScrap.Api.Managers
 			int? maxPrice = null
 			)
 		{
-			return _pcPartsRepo.GetItemsInCategoryWithinCurrentPrice(category, producentCodes, minPrice, maxPrice)
+			return _pcPartsRepo.GetItemsInCategoryWithinPrice(category, producentCodes, minPrice, maxPrice)
 				.ToDictionary(g => g.Key, g => g.ToList());
 		}
 
