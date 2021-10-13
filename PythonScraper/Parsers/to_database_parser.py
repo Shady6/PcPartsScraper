@@ -1,7 +1,8 @@
 from datetime import datetime
 import time
 
-def parsePcPartsToDbFormat(pcParts):        
+
+def parsePcPartsToDbFormat(pcParts):
 
     databaseFormatResult = []
 
@@ -20,20 +21,19 @@ def parsePcPartsToDbFormat(pcParts):
                 shopName = pcParts["shopName"]
 
             databaseFormatResult.append({
-            "shopName": shopName,
-            "productName": productName,
-            "category": category,
-            "detailedName": detailedName,
-            "price": price,
-            "producentCode": producentCode,
-            "listingDate": time.strftime('%Y-%m-%d %H:%M:%S'),
-            "id": ""
-        })
+                "shopName": shopName,
+                "productName": productName,
+                "category": category,
+                "detailedName": detailedName,
+                "price": price,
+                "producentCode": producentCode,
+                "listingDate": time.strftime('%Y-%m-%d %H:%M:%S')
+            })
 
     return databaseFormatResult
 
 
-def parseProducentCodesToDbFormat(producentCodes):        
+def parseProducentCodesToDbFormat(producentCodes):
 
     databaseFormatResult = []
 
@@ -42,12 +42,12 @@ def parseProducentCodesToDbFormat(producentCodes):
         category = entry["category"]
         for item in entry["items"]:
             detailedName = item["name"]
-            producentCode = item["producentCode"]            
-                
+            producentCode = item["producentCode"]
+
             databaseFormatResult.append({
                 "category": category,
                 "detailedName": detailedName,
-                "producentCode": producentCode,                
+                "producentCode": producentCode,
             })
 
     return databaseFormatResult

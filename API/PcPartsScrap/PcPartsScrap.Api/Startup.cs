@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PcPartsScrap.Api.Common;
 using PcPartsScrap.Api.Data;
 using PcPartsScrap.Api.Data.Repository;
 using PcPartsScrap.Api.Data.Repository.Interfaces;
@@ -29,6 +30,8 @@ namespace PcPartsScrap.Api
 				options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 			services.AddTransient<IPcPartsManager, PcPartsManager>();
 			services.AddTransient<IPcPartsRepository, PcPartsRepository>();
+
+			services.AddAutoMapper(typeof(Startup), typeof(PcPartsScrapMappings));
 
 			services.AddControllers()
 				.AddNewtonsoftJson();

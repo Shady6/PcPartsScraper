@@ -19,7 +19,8 @@ def dataStepsToFile(preParsePcParts):
     pcPartsTrimmed = filterRecordsNotContainingKeyword(postParsePcParts)
     # saveJsonToFile("pcPartsTrimmed", json.dumps(pcPartsTrimmed))
 
-    pcPartsFilteredByProducentCode = filterRecordsWithInvalidProducentCode(postParsePcParts)
+    pcPartsFilteredByProducentCode = filterRecordsWithInvalidProducentCode(
+        postParsePcParts)
     # saveJsonToFile("pcPartsFilteredByProducentCode", json.dumps(pcPartsFilteredByProducentCode))
 
     producentCodesList = createProducentCodesList(postParsePcParts)
@@ -33,14 +34,15 @@ def dataStepsToFile(preParsePcParts):
     producentCodesDbFormat = parseProducentCodesToDbFormat(producentCodesList)
     # saveJsonToFile("producentCodesDbFormat",json.dumps(producentCodesDbFormat))
 
-    print(f"Attempting to save data from {preParsePcParts['shopName']} to database.")
+    print(
+        f"Attempting to save data from {preParsePcParts['shopName']} to database.")
     saveAll()
 
 
 def loadShopsData():
     shopsData = ""
 
-    with open("./ShopsInputData/shops.json") as f:
+    with open("./ShopsInputData/shops_debug.json") as f:
         shopsData = json.load(f)
     return shopsData
 
@@ -54,7 +56,8 @@ async def main():
             scrapedPcParts = await GetScrapedParts(shop, shopsData)
 
             saveJsonToFile("preParsePcParts", json.dumps(scrapedPcParts))
-            saveJsonToFile("_all_preParsePcParts", json.dumps(scrapedPcParts), True)
+            saveJsonToFile("_all_preParsePcParts",
+                           json.dumps(scrapedPcParts), True)
             dataStepsToFile(scrapedPcParts)
 
     else:

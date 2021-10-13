@@ -18,16 +18,19 @@ class PcPartsSpider(Spider):
         return self
 
     async def CreatePcPartsList(self):
-        parentContainer = self.super.soup.select(self.cssSelectors['container'])
-        parentContainer = parentContainer[0].contents if len(parentContainer) == 1 else parentContainer
+        parentContainer = self.super.soup.select(
+            self.cssSelectors['container'])
+        parentContainer = parentContainer[0].contents if len(
+            parentContainer) == 1 else parentContainer
 
         # pcParts = []
 
-        # For debug purpose decrease requests        
+        # For debug purpose decrease requests
         maxiterations = 1
         i = 0
 
-        htmlTags = [child for child in parentContainer if isinstance(child, Tag)]
+        htmlTags = [
+            child for child in parentContainer if isinstance(child, Tag)]
         pcParts = await asyncio.gather(*[self.GetPcPart(child) for child in htmlTags])
 
         # for child in (c for c in parentContainer if isinstance(c, Tag)):
@@ -38,7 +41,8 @@ class PcPartsSpider(Spider):
         return pcParts
 
     async def GetPcPart(self, htmlElement):
-        propertiesToSelect = {"name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}
+        propertiesToSelect = {
+            "name": self.cssSelectors["name"], "price": self.cssSelectors["price"]}
         if "originalShop" in self.cssSelectors:
             propertiesToSelect["originalShop"] = self.cssSelectors["originalShop"]
 
@@ -50,15 +54,16 @@ class PcPartsSpider(Spider):
             pcPart["producentCode"] = ""
         return pcPart
 
-
     async def GetProducentCode(self, htmlElement):
         producentCode = ""
 
         if self.cssSelectors["linkToProduct"] == None:
-            producentCodeDict = self.GetText({"producentCode": self.cssSelectors["producentCode"]}, htmlElement)
+            producentCodeDict = self.GetText(
+                {"producentCode": self.cssSelectors["producentCode"]}, htmlElement)
             producentCode = producentCodeDict["producentCode"]
         else:
-            absoluteUrl = self.super.GetAbsoluteUrl(self.cssSelectors["linkToProduct"], htmlElement)
+            absoluteUrl = self.super.GetAbsoluteUrl(
+                self.cssSelectors["linkToProduct"], htmlElement)
             producentCode = await self.GetProducentCodeFromSubPage(absoluteUrl)
 
         return producentCode
@@ -67,7 +72,8 @@ class PcPartsSpider(Spider):
         subSpider = await Spider.create(url, "")
         # subSpider = Spider(url, "")
         producentCodeDict = (
-            subSpider.GetText({"producentCode": self.cssSelectors["producentCode"]})
+            subSpider.GetText(
+                {"producentCode": self.cssSelectors["producentCode"]})
         )
 
         return producentCodeDict["producentCode"]

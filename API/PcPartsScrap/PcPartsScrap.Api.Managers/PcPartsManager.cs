@@ -1,9 +1,10 @@
-﻿using PcPartsScrap.Api.Common.Extensions;
+﻿using AutoMapper;
+using PcPartsScrap.Api.Common.Extensions;
 using PcPartsScrap.Api.Data;
+using PcPartsScrap.Api.Data.DTOs;
 using PcPartsScrap.Api.Data.Entities;
 using PcPartsScrap.Api.Data.Repository.Interfaces;
 using PcPartsScrap.Api.Managers.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,28 +13,35 @@ namespace PcPartsScrap.Api.Managers
 	public class PcPartsManager : IPcPartsManager
 	{
 		private readonly IPcPartsRepository _pcPartsRepo;
+		private readonly IMapper _mapper;
 
-		public PcPartsManager(IPcPartsRepository pcPartsRepo)
+		public PcPartsManager(IPcPartsRepository pcPartsRepo, IMapper mapper)
 		{
-			_pcPartsRepo = pcPartsRepo;			
+			_pcPartsRepo = pcPartsRepo;
+			_mapper = mapper;
 		}
 
-		public Dictionary<string, List<PCParts>> SearchItemsWithFilter(string category, SearchFilter filter)
+		public Dictionary<string, List<PcPartDto>> SearchItemsWithFilter(string category, SearchFilter filter)
 		{
-			switch (filter.filterBy.ToEnum<FilterBy>())
+			Dictionary<string, List<PCParts>> result;
+
+			switch (filter.FilterBy.ToEnum<FilterBy>())
 			{
 				case FilterBy.Price:
-					return GetItemsInCategoryWithinCurrentPrice(category, filter.producentCodes, filter.minPrice, filter.maxPrice);
-
+					result = GetItemsInCategoryWithinCurrentPrice(category, filter);
+					break;
 				case FilterBy.Date:
-					return GetItemsInCategoryWithinTime(category, filter.producentCodes, filter.minListingDate, filter.maxListingDate);
-
+					result = GetItemsInCategoryWithinTime(category, filter);
+					break;
 				case FilterBy.PriceAndDate:
-					return GetItemsInCategoryWithinTimeAndPrice(category, filter.producentCodes, filter.minListingDate, filter.maxListingDate, filter.minPrice, filter.maxPrice);
-
+					result = GetItemsInCategoryWithinTimeAndPrice(category, filter);
+					break;
 				default:
-					return GetItemsInCategory(category, filter.producentCodes);
+					result = GetItemsInCategory(category, filter.ProducentCodes);
+					break;
 			}
+
+			return _mapper.Map<Dictionary<string, List<PcPartDto>>>(result);
 		}
 
 		public string[] GetCategories()
@@ -46,38 +54,21 @@ namespace PcPartsScrap.Api.Managers
 			return _pcPartsRepo.GetItemsNamesInCategory(category);
 		}
 
-		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinTimeAndPrice(
-			string category,
-			string[] producentCodes,
-			DateTime? minListingDate = null,
-			DateTime? maxListingDate = null,
-			int? minPrice = null,
-			int? maxPrice = null
-			)
+		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinTimeAndPrice(string category, SearchFilter filter)
 		{
-			return _pcPartsRepo.GetItemsInCategoryWithinTimeAndPrice(category, producentCodes, minListingDate, maxListingDate, minPrice, maxPrice)
+			return _pcPartsRepo.GetItemsInCategoryWithinTimeAndPrice(category, filter)
 				.ToDictionary(g => g.Key, g => g.ToList());
 		}
 
-		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinTime(
-			string category,
-			string[] producentCodes,
-			DateTime? minListingDate = null,
-			DateTime? maxListingDate = null
-			)
+		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinTime(string category, SearchFilter filter)
 		{
-			return _pcPartsRepo.GetItemsInCategoryWithinTime(category, producentCodes, minListingDate, maxListingDate)
+			return _pcPartsRepo.GetItemsInCategoryWithinTime(category, filter)
 				.ToDictionary(g => g.Key, g => g.ToList());
 		}
 
-		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinCurrentPrice(
-			string category,
-			string[] producentCodes,
-			int? minPrice = null,
-			int? maxPrice = null
-			)
+		private Dictionary<string, List<PCParts>> GetItemsInCategoryWithinCurrentPrice(string category, SearchFilter filter)
 		{
-			return _pcPartsRepo.GetItemsInCategoryWithinPrice(category, producentCodes, minPrice, maxPrice)
+			return _pcPartsRepo.GetItemsInCategoryWithinPrice(category, filter)
 				.ToDictionary(g => g.Key, g => g.ToList());
 		}
 
@@ -85,6 +76,11 @@ namespace PcPartsScrap.Api.Managers
 		{
 			return _pcPartsRepo.GetItemsInCategory(category, producentCodes)
 				.ToDictionary(g => g.Key, g => g.ToList());
+		}
+
+		Dictionary<string, List<PCParts>> IPcPartsManager.SearchItemsWithFilter(string category, SearchFilter filter)
+		{
+			throw new System.NotImplementedException();
 		}
 	}
 }

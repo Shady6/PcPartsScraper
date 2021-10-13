@@ -1,9 +1,13 @@
-import pyodbc 
+import pyodbc
 
-def connect():    
-    connection = pyodbc.connect('Driver={SQL Server};'
-                        'Server=DESKTOP-CVC40GK;'
-                        'Database=skateSpot2TestDb;'
-                        'Trusted_Connection=yes;')
+
+def connect():
+    connection = pyodbc.connect('Driver={PostgreSQL Unicode};'
+                                'Server=localhost;'
+                                'Port:5432;'
+                                'Database=PcPartScrap;'
+                                'Uid=postgres;'
+                                'PWD=123;'
+                                'Trusted_Connection=yes;')
 
     return connection

@@ -1,6 +1,6 @@
 import re
 import copy
-from html.parser import HTMLParser
+import html
 from CurrencyAPI.exchange_rates import getExchangeRate
 from price_parser import Price
 
@@ -35,7 +35,8 @@ def parseProducentCode(text):
         text = text[leftBracketI + 1: rightBracketI]
     else:
         text = trim(re.sub(r"[\[\]]", "", text))
-        text = [entry for entry in text.split(" ") if entry != ""][0] if text != "" else ""
+        text = [entry for entry in text.split(
+            " ") if entry != ""][0] if text != "" else ""
 
     return trim(text)
 
@@ -46,7 +47,7 @@ def removeUnwantedWords(wordList, text):
     return text
 
 
-def SearchAndRemove(textToSearch, text, takeLeft = None):
+def SearchAndRemove(textToSearch, text, takeLeft=None):
     wordToRemoveSearchResult = re.search(
         textToSearch, text, flags=re.IGNORECASE)
 
@@ -67,7 +68,8 @@ def trimRemoveSpecialCharacters(text):
 
 def parsePrice(text, currency):
     text = trim(removeHtmlSpecialCharacters(text))
-    amount = Price.fromstring(text).amount if Price.fromstring(text).amount else 0
+    amount = Price.fromstring(
+        text).amount if Price.fromstring(text).amount else 0
 
     if currency != "PLN":
         return int(float(amount) * getExchangeRate(currency))
@@ -80,8 +82,7 @@ def removeNonDigit(text):
 
 
 def removeHtmlSpecialCharacters(text):
-    parser = HTMLParser()
-    return parser.unescape(text)
+    return html.unescape(text)
 
 
 def trim(text):
